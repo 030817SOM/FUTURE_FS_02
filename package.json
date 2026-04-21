@@ -1,0 +1,37 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.10"
+  },
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "baseline-browser-mapping": "^2.10.20",
+    "browserslist": "^4.28.2",
+    "caniuse-lite": "^1.0.30001788",
+    "electron-to-chromium": "^1.5.340",
+    "escalade": "^3.2.0",
+    "fraction.js": "^5.3.4",
+    "lucide-react": "^1.8.0",
+    "nanoid": "^3.3.11",
+    "node-releases": "^2.0.37",
+    "picocolors": "^1.1.1",
+    "postcss-value-parser": "^4.2.0",
+    "react-router-dom": "^7.14.1",
+    "source-map-js": "^1.2.1",
+    "tailwindcss": "^3.4.19",
+    "update-browserslist-db": "^1.2.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd Lead-CRM && npm run dev",
+    "build": "cd Lead-CRM && npm run build",
+    "lint": "cd Lead-CRM && npm run lint",
+    "preview": "cd Lead-CRM && npm run preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
