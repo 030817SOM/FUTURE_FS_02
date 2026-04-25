@@ -1,111 +1,134 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    /* Force dark by default — keeping :root identical to .dark */
+    --background: 224 30% 6%;
+    --foreground: 220 15% 92%;
+
+    --card: 224 25% 9%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 224 28% 8%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 244 90% 66%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 260 95% 72%;
+
+    --secondary: 224 20% 14%;
+    --secondary-foreground: 220 15% 92%;
+
+    --muted: 224 18% 13%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 190 95% 55%;
+    --accent-foreground: 224 30% 6%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 65% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 95% 58%;
+    --warning-foreground: 224 30% 6%;
+
+    --border: 224 18% 16%;
+    --input: 224 18% 14%;
+    --ring: 244 90% 66%;
+
+    --radius: 0.75rem;
+
+    /* Status colors for leads (dark-mode tuned) */
+    --status-new: 244 90% 70%;
+    --status-new-bg: 244 60% 18%;
+    --status-contacted: 38 95% 62%;
+    --status-contacted-bg: 38 60% 16%;
+    --status-converted: 152 65% 55%;
+    --status-converted-bg: 152 55% 14%;
+    --status-lost: 220 8% 60%;
+    --status-lost-bg: 224 15% 16%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(244 90% 66%), hsl(280 90% 68%));
+    --gradient-hero: radial-gradient(ellipse at top left, hsl(244 90% 66% / 0.25), transparent 60%),
+                     radial-gradient(ellipse at bottom right, hsl(190 95% 55% / 0.18), transparent 60%);
+    --gradient-subtle: linear-gradient(180deg, hsl(224 30% 7%), hsl(224 32% 5%));
+    --gradient-card: linear-gradient(180deg, hsl(224 25% 11% / 0.8), hsl(224 25% 8% / 0.8));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 24px 48px -16px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 0 1px hsl(var(--primary) / 0.4), 0 0 32px -4px hsl(var(--primary) / 0.4);
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 224 28% 7%;
+    --sidebar-foreground: 220 15% 80%;
+    --sidebar-primary: 244 90% 66%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 224 20% 13%;
+    --sidebar-accent-foreground: 220 15% 92%;
+    --sidebar-border: 224 18% 14%;
+    --sidebar-ring: 244 90% 66%;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  .dark {
+    
+    --background: 224 30% 6%;
+    --foreground: 220 15% 92%;
+    --card: 224 25% 9%;
+    --card-foreground: 220 15% 92%;
+    --popover: 224 28% 8%;
+    --popover-foreground: 220 15% 92%;
+    --primary: 244 90% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 20% 14%;
+    --secondary-foreground: 220 15% 92%;
+    --muted: 224 18% 13%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 190 95% 55%;
+    --accent-foreground: 224 30% 6%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 18% 16%;
+    --input: 224 18% 14%;
+    --ring: 244 90% 66%;
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-body {
-  margin: 0;
-}
+  html {
+    color-scheme: dark;
+  }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(244 90% 66% / 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 80% 100%, hsl(190 95% 55% / 0.06), transparent);
+    background-attachment: fixed;
+  }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }
