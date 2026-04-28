@@ -291,7 +291,7 @@ const Landing = () => {
               Workflow
             </div>
             <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight md:text-5xl">
-              From form submit to closed deal.
+               form submit to closed deal.
             </h2>
           </div>
 
