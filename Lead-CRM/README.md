@@ -1,73 +1,275 @@
-# React + TypeScript + Vite
+# 🚀 Wanga's CRM (Full Stack Project)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Customer Relationship Management (CRM)** system built with:
 
-Currently, two official plugins are available:
+* ⚛️ React (Frontend)
+* ⚡ Node.js + Express (Backend)
+* 🐘 PostgreSQL (Database)
+* 🔐 JWT Authentication
+* 🎯 TypeScript (Full Stack)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# 📌 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔐 Authentication
 
-## Expanding the ESLint configuration
+* User signup & login
+* JWT-based authentication
+* Protected routes
+* Role-based access (admin / agent)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 👥 Leads Management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Create leads
+* Update lead status (new, contacted, converted, lost)
+* Delete leads
+* Assign leads to users
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📝 Notes System
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Add notes to leads
+* Track communication history
+* Chronological ordering
+
+## 📊 Dashboard (Frontend)
+
+* Lead overview
+* Status filtering
+* Clean UI with responsive design
+
+---
+
+# 🏗️ Tech Stack
+
+## Frontend
+
+* React + TypeScript + Tailwindcss
+* Vite
+* Context API / Hooks
+* Fetch API
+
+## Backend
+
+* Node.js
+* Express
+* TypeScript
+* JWT Authentication
+* bcrypt
+
+## Database
+
+* PostgreSQL
+* Relational schema design
+
+---
+
+# 📁 Project Structure
+
+```
+Backend-CRM/
+│
+├── src/
+│   ├── config/
+│   │   └── env.ts
+│   ├── middleware/
+│   │   └── auth.ts
+│   ├── routes/
+│   │   ├── auth.ts
+│   │   └── leads.ts
+│   ├── utils/
+│   │   └── jwt.ts
+│   └── server.ts
+│
+├── .env
+├── package.json
+├── tsconfig.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# ⚙️ Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 1. Clone repository
+
+```bash
+git clone https://github.com/030817SOM/FUTURE_FS_02.git
+cd Lead-CRM
 ```
+
+---
+
+## 2. Install backend dependencies
+
+```bash
+cd Backend-CRM
+npm install
+```
+
+---
+
+## 3. Setup environment variables
+
+Create a `.env` file:
+
+```env
+PORT=4000
+DATABASE_URL=your_postgres_connection_string
+JWT_SECRET=your_secret_key
+FRONTEND_URL=http://localhost:5173
+```
+
+---
+
+## 4. Run database
+
+Make sure PostgreSQL is running and tables are created:
+
+* users
+* leads
+* lead_notes
+
+---
+
+## 5. Start backend server
+
+```bash
+npm run dev
+```
+
+Server runs on:
+
+```
+http://localhost:4000
+```
+
+---
+
+## 6. Start frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🔗 API Endpoints
+
+## 🔐 Auth
+
+| Method | Endpoint         | Description      |
+| ------ | ---------------- | ---------------- |
+| POST   | /api/auth/signup | Create user      |
+| POST   | /api/auth/login  | Login user       |
+| GET    | /api/auth/me     | Get current user |
+| POST   | /api/auth/logout | Logout user      |
+
+---
+
+## 👥 Leads
+
+| Method | Endpoint       | Description     |
+| ------ | -------------- | --------------- |
+| GET    | /api/leads     | Get all leads   |
+| POST   | /api/leads     | Create lead     |
+| GET    | /api/leads/:id | Get single lead |
+| PATCH  | /api/leads/:id | Update lead     |
+| DELETE | /api/leads/:id | Delete lead     |
+
+---
+
+## 📝 Notes
+
+| Method | Endpoint                     | Description |
+| ------ | ---------------------------- | ----------- |
+| POST   | /api/leads/:id/notes         | Add note    |
+| DELETE | /api/leads/:id/notes/:noteId | Delete note |
+
+---
+
+# 🔐 Authentication Flow
+
+1. User signs up or logs in
+2. Backend returns JWT token
+3. Token stored in `localStorage`
+4. Token sent in requests:
+
+```
+Authorization: Bearer <token>
+```
+
+5. Backend validates token on protected routes
+
+---
+
+# 🧠 Role System
+
+* **Admin**: can see all leads
+* **Agent**: can only see assigned leads
+
+---
+
+# 🚀 Deployment
+
+## Frontend
+
+* netlify
+
+## Backend
+
+* Render
+
+## Database
+
+* Supabase / Neon PostgreSQL
+
+---
+
+# ⚠️ Common Issues
+
+## CORS Error
+
+Ensure backend has:
+
+```ts
+cors({ origin: "http://localhost:5173" })
+```
+
+---
+
+## Cannot connect to backend
+
+Check:
+
+* Backend running
+* Correct API URL
+
+---
+
+## Token issues
+
+Ensure:
+
+```
+Authorization: Bearer <token>
+```
+
+---
+
+# 👨‍💻 Author
+
+Built by **Wanga Somhlaba** as a full-stack CRM project.
+
+---
+
+# 📌 License
+
+MIT License
