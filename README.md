@@ -1,5 +1,7 @@
 📊 Wanga’s CRM
 
+Live demo: https://leads-crms.netlify.app/
+
 A simple Customer Relationship Management (CRM) system designed to manage client leads generated from website contact forms. This full-stack application demonstrates how to build, connect, and manage a modern web system using React, Node.js, and PostgreSQL.
 
 🚀 Project Overview
